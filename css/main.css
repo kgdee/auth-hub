@@ -1,0 +1,124 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.app {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.circle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  aspect-ratio: 1;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.post-list {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@scope (.redirect-page) {
+  :scope {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+  }
+
+  .message img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .loading-overlay {
+    display: none !important;
+  }
+}
+
+@scope (.list-modal) {
+  :scope .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+  }
+
+  .item {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.1s;
+  }
+
+  .item .bi {
+    font-size: 1.5rem;
+  }
+
+  .item .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .item span {
+    color: var(--text-color);
+    font-size: 12px;
+    opacity: 0.8;
+  }
+
+  .item .arrow {
+    color: var(--text-color);
+    font-size: 22px;
+  }
+
+  .item input[type="number"] {
+    width: 40px;
+    padding: 2px;
+    background-color: var(--label-color);
+    color: var(--text-color);
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+/* Medium screens (Tablets, up to 768px wide) */
+@media (max-width: 768px) {
+}
+
+/* Small screens (Phones, up to 480px wide) */
+@media (max-width: 480px) {
+}

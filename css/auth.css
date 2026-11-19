@@ -1,0 +1,247 @@
+@scope (.auth-page) {
+  main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .logo {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .headline {
+    font-size: 3.5rem;
+    color: white;
+  }
+
+  .headline span {
+    color: var(--color-primary);
+  }
+
+  .auth-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    padding-left: 50px;
+  }
+
+  .auth-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .auth-wrapper .title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .auth-wrapper .title span {
+    color: var(--color-primary);
+  }
+
+  .divider {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    align-items: center;
+  }
+
+  .divider > * {
+    height: 0;
+  }
+
+  .divider > div {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .divider > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .oauth-btn {
+    color: var(--color-text);
+    background-color: var(--color-surface);
+  }
+
+  .oauth-btn img {
+    width: 32px;
+    aspect-ratio: 1;
+  }
+
+  .password-reset-link {
+    text-align: center;
+  }
+
+  .acc-link {
+    cursor: pointer;
+    color: var(--color-primary);
+    padding: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .credit-display {
+    position: absolute;
+    bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .meta-icon {
+    width: 24px;
+    height: auto;
+    fill: currentColor;
+  }
+
+  @scope (.auth-form) {
+    :scope {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+    }
+  }
+}
+
+@scope (.login-page, .signup-page) {
+  :scope {
+    background-color: black;
+  }
+
+  .wallpaper {
+    position: absolute;
+    width: 60vw;
+    height: 100dvh;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(50%);
+  }
+
+  .auth-section {
+    background: linear-gradient(to left, black 90%, transparent 100%);
+  }
+}
+
+@scope (.password-reset-page) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@scope (.auth-action-page) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  @scope (.reset-password-success, .verify-email) {
+    :scope {
+      background-color: var(--color-surface);
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      aspect-ratio: 1;
+      font-size: 2rem;
+      color: var(--color-success);
+      background-color: var(--color-bg);
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .notice {
+      color: var(--color-success);
+    }
+  }
+
+  @scope (.recover-email) {
+    :scope {
+      background-color: var(--color-surface);
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      aspect-ratio: 1;
+      font-size: 2rem;
+      color: var(--color-warning);
+      background-color: var(--color-bg);
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .notice {
+      color: var(--color-warning);
+    }
+  }
+
+  @scope (.invalid) {
+    :scope {
+      background-color: var(--color-surface);
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      aspect-ratio: 1;
+      font-size: 2rem;
+      color: var(--color-danger);
+      background-color: var(--color-bg);
+      padding: 10px;
+      border-radius: 50%;
+    }
+
+    .notice {
+      color: var(--color-danger);
+    }
+  }
+}
