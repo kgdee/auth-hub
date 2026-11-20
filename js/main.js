@@ -29,10 +29,10 @@ async function onAuthStateChanged(user) {
   if (!isPageInitialized) {
     await currentPage?.init();
     isPageInitialized = true;
-  } 
-  
+  }
+
   updateUI();
-  currentPage?.updateUI();
+  currentPage?.updateUI?.();
 
   loadingWithOverlay(false);
 

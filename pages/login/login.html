@@ -20,12 +20,10 @@
     <script src="/js/main.js" defer></script>
     <script src="/js/auth.js" defer></script>
   </head>
-  <body class="auth-page login-page">
+  <body class="force-dark-theme auth-page login-page">
     <div class="app">
       <img class="wallpaper" />
       <main class="container">
-        <img src="/assets/images/logo.png" class="logo" onclick="navigate()" />
-
         <div class="hero-section">
           <div class="headline"></div>
         </div>
@@ -58,10 +56,11 @@
             Meta
           </div>
         </div>
-
-        <div class="toast"></div>
-        <div class="loading-overlay"></div>
       </main>
+
+      <img src="/assets/images/logo.png" class="logo" onclick="navigate()" />
+      <div class="toast"></div>
+      <div class="loading-overlay"></div>
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   font-display: swap;
 }
 
-:root {
+:root, .light-theme, .force-light-theme {
   --color-primary: #6366f1;
   --color-primary-hover: #4f46e5;
   --color-secondary: #10b981;
@@ -30,7 +30,7 @@
   --color-bg-overlay: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
 }
 
-.dark-theme {
+.dark-theme, .force-dark-theme {
   --color-bg: #222;
   --color-surface: #2c2c2c;
   --color-text: #eee;

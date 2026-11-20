@@ -12,7 +12,6 @@
     left: 32px;
     width: 40px;
     height: 40px;
-    z-index: 1;
     cursor: pointer;
   }
 
@@ -26,7 +25,6 @@
 
   .headline {
     font-size: 2.5rem;
-    color: white;
   }
 
   .headline span {
@@ -40,12 +38,10 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    padding-left: 50px;
   }
 
   .auth-wrapper {
     position: relative;
-    z-index: 1;
     width: 100%;
     max-width: 400px;
     display: flex;
@@ -54,7 +50,6 @@
   }
 
   .auth-wrapper .title {
-    color: #eee;
     font-size: 1.1rem;
     font-weight: bold;
     text-align: left;
@@ -68,7 +63,7 @@
     display: grid;
     grid-template-columns: 1fr 40px 1fr;
     align-items: center;
-    color: #aaa;
+    color: var(--color-text-muted);
   }
 
   .divider > * {
@@ -76,7 +71,7 @@
   }
 
   .divider > div {
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid var(--color-text-muted);
   }
 
   .divider > span {
@@ -96,7 +91,6 @@
   }
 
   .password-reset-link {
-    color: #eee;
     text-align: center;
   }
 
@@ -139,6 +133,20 @@
       border-radius: 4px;
     }
   }
+
+  /* Medium screens (Tablets, up to 768px wide) */
+  @media (max-width: 768px) {
+    .logo {
+      top: 10px;
+      left: 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  /* Small screens (Phones, up to 480px wide) */
+  @media (max-width: 480px) {
+  }
 }
 
 @scope (.login-page, .signup-page) {
@@ -158,7 +166,28 @@
   }
 
   .auth-section {
+    padding-left: 50px;
     background: linear-gradient(to left, black 90%, transparent 100%);
+  }
+
+  /* Medium screens (Tablets, up to 768px wide) */
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-section {
+      display: none;
+    }
+
+    .auth-section {
+      padding-left: 10px;
+      background: #2c2c2c !important;
+    }
+  }
+
+  /* Small screens (Phones, up to 480px wide) */
+  @media (max-width: 480px) {
   }
 }
 

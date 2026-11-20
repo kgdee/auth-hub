@@ -181,6 +181,36 @@ const Firebase = (() => {
     }
   }
 
+  async function applyActionCode() {
+    try {
+      await auth.applyActionCode(oobCode);
+    } catch (error) {
+      handleError(error);
+    }
+  }
+
+  async function sendPasswordResetEmail(email) {
+    try {
+      await auth.sendPasswordResetEmail(email);
+      notify("Password reset email sent.");
+    } catch (error) {
+      handleError(error);
+    }
+  }
+
+  async function getTotalAuthUsers() {
+    const apiUrl = "https://kgdee-firebase-functions.netlify.app/.netlify/functions/count-auth-users";
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to get total auth users.");
+    }
+
+    const data = await response.json();
+
+    return data.totalUsers;
+  }
+
   async function createDocument(documentPath) {
     try {
       await db.doc(documentPath).set({});
@@ -327,27 +357,17 @@ const Firebase = (() => {
     }
   }
 
-  async function getTotalAuthUsers() {
-    const apiUrl = "https://kgdee-firebase-functions.netlify.app/.netlify/functions/count-auth-users";
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(data.error || "Failed to get total auth users.");
-    }
-
-    const data = await response.json();
-
-    return data.totalUsers;
-  }
-
   return {
-    getTotalDocuments,
     auth,
     init,
     login,
     loginWithGoogle,
     signup,
     logout,
+    applyActionCode,
+    sendPasswordResetEmail,
+    getTotalAuthUsers,
+    getTotalDocuments,
     createDocument,
     getDocument,
     getDocuments,
@@ -356,6 +376,5 @@ const Firebase = (() => {
     deleteDocument,
     listCollections,
     deleteItem,
-    getTotalAuthUsers,
   };
 })();

@@ -23,15 +23,13 @@
   <body class="auth-page auth-action-page">
     <div class="app">
       <main class="container">
-        <img src="/assets/images/logo.png" class="logo" onclick="navigate()" />
-
         <div class="auth-section">
           <div class="view loading">Loading...</div>
 
           <div class="view auth-wrapper reset-password hidden">
             <h2 class="title">Change password for <span>@Username</span></h2>
 
-            <form class="auth-form" onsubmit="resetPassword(event)">
+            <form class="auth-form" onsubmit="ActionPage.resetPassword(event)">
               <input name="newPassword" class="password-input" type="password" placeholder="Password (min. 6 chars)" required minlength="6" />
               <input name="confirmPassword" class="confirm-password-input" type="password" placeholder="Confirm password" required minlength="6" />
               <button type="submit" class="button">Change password</button>
@@ -97,6 +95,7 @@
         </div>
       </main>
 
+      <img src="/assets/images/logo.png" class="logo" onclick="navigate()" />
       <div class="toast"></div>
       <div class="loading-overlay"></div>
     </div>
