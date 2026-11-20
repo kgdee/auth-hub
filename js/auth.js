@@ -2,6 +2,8 @@ const wallpaper = document.querySelector(".wallpaper");
 
 document.addEventListener("DOMContentLoaded", () => {
   if (wallpaper) wallpaper.src = `/assets/images/wallpapers/${randomInt(0, 2)}.jpg`;
+
+  document.querySelector(".hero-section > .headline").innerHTML = getRandomItem(HEADLINES);
 });
 
 async function signup(event) {

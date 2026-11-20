@@ -5,7 +5,9 @@ let currentSettings = load("currentSettings", {
   notifications: true,
   darkTheme: true,
 });
+globalThis.currentPage = null;
 globalThis.currentAuthUser = null;
+let isPageInitialized = false;
 
 document.addEventListener("DOMContentLoaded", async () => {
   loading(true);
@@ -22,13 +24,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function onAuthStateChanged(user) {
   globalThis.currentAuthUser = user;
-  console.log("currentAuthUser:", currentAuthUser);
+  console.log("currentAuthUser", currentAuthUser);
 
-  await globalThis.initPage?.();
-
+  if (!isPageInitialized) {
+    await currentPage?.init();
+    isPageInitialized = true;
+  } 
+  
   updateUI();
+  currentPage?.updateUI();
 
   loadingWithOverlay(false);
+
+  if (currentAuthUser) {
+    const redirectUrl = urlParams.get("redirect");
+    if (redirectUrl) window.location.href = redirectUrl;
+  }
 }
 
 function navigate(name, params = "") {

@@ -25,7 +25,7 @@
   }
 
   .headline {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     color: white;
   }
 
@@ -54,6 +54,7 @@
   }
 
   .auth-wrapper .title {
+    color: #eee;
     font-size: 1.1rem;
     font-weight: bold;
     text-align: left;
@@ -67,6 +68,7 @@
     display: grid;
     grid-template-columns: 1fr 40px 1fr;
     align-items: center;
+    color: #aaa;
   }
 
   .divider > * {
@@ -74,7 +76,7 @@
   }
 
   .divider > div {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid #aaa;
   }
 
   .divider > span {
@@ -94,6 +96,7 @@
   }
 
   .password-reset-link {
+    color: #eee;
     text-align: center;
   }
 

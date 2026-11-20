@@ -2,12 +2,7 @@ const PROJECT_NAME = "auth-hub";
 
 const RESOURCES = {
   utils: ["/components/toast/toast.css", "/components/loading-overlay/loading-overlay.css", "/components/toast/toast.js", "/components/loading-overlay/loading-overlay.js", "/components/avatar/avatar.js"],
-  home: [
-    "/components/navbar/navbar.css",
-    "/components/menu-modal/menu-modal.css",
-    "/components/navbar/navbar.js",
-    "/components/menu-modal/menu-modal.js",
-  ],
+  home: ["/components/navbar/navbar.css", "/components/menu-modal/menu-modal.css", "/components/navbar/navbar.js", "/components/menu-modal/menu-modal.js"],
 };
 
 const USERNAMES = [
@@ -26,4 +21,12 @@ const USERNAMES = [
   "QuantumHunter",
   "GhostProtocol",
   "VortexRider",
+];
+
+const HEADLINES = [
+  `<span>One Login.</span> Everything Connected.`,
+  `<span>Your Access</span> Starts Here.`,
+  `Everything You Need, <span>One Sign-In.</span>`,
+  `<span>One Account.</span> Seamless Access.`,
+  `Your Gateway <span>to Everything.</span>`,
 ];

@@ -344,6 +344,7 @@ const Firebase = (() => {
     getTotalDocuments,
     auth,
     init,
+    login,
     loginWithGoogle,
     signup,
     logout,
