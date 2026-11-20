@@ -35,20 +35,17 @@ async function onAuthStateChanged(user) {
   currentPage?.updateUI?.();
 
   loadingWithOverlay(false);
-
-  if (currentAuthUser) {
-    const redirectUrl = urlParams.get("redirect");
-    if (redirectUrl) window.location.href = redirectUrl;
-  }
 }
 
-function navigate(name, params = "") {
+function navigate(name, { urlParams = "", isReloadAllowed = true } = {}) {
   if (!name) {
     window.location.href = "/";
     return;
   }
   const targetPath = `/pages/${name}/${name}.html`;
-  window.location.href = `${targetPath}${params}`;
+
+  if (!isReloadAllowed && window.location.pathname.includes(targetPath)) return;
+  window.location.href = `${targetPath}${urlParams}`;
 }
 
 function loading(state = true) {
@@ -119,6 +116,7 @@ function toggleSetting(name, force) {
 async function logout() {
   await withLoading(async () => {
     await Firebase.logout();
+    navigate();
   });
 }
 

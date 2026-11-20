@@ -13,10 +13,10 @@ async function signup(event) {
     const email = document.querySelector(".email-input").value;
     const password = document.querySelector(".password-input").value;
 
-    const user = await Firebase.signup({ email, password });
+    await Firebase.signup({ email, password });
 
-    if (user) navigate("home");
     event.target.reset();
+    redirectAfterAuth();
   });
 }
 
@@ -27,17 +27,17 @@ async function login(event) {
     const email = document.querySelector(".email-input").value;
     const password = document.querySelector(".password-input").value;
 
-    const user = await Firebase.login({ email, password });
+    await Firebase.login({ email, password });
 
-    if (user) navigate("home");
     event.target.reset();
+    redirectAfterAuth();
   });
 }
 
 async function loginWithGoogle(event) {
   await withLoading(async () => {
-    const user = await Firebase.loginWithGoogle();
-    if (user) navigate("home");
+    await Firebase.loginWithGoogle();
+    redirectAfterAuth();
   });
 }
 
@@ -48,4 +48,10 @@ async function sendPasswordResetEmail(event) {
     const email = document.querySelector(".email-input").value;
     await Firebase.sendPasswordResetEmail(email);
   });
+}
+
+function redirectAfterAuth() {
+  const redirectUrl = urlParams.get("redirect");
+  if (redirectUrl) window.location.href = redirectUrl;
+  else navigate("home");
 }
