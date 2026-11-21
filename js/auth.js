@@ -50,8 +50,30 @@ async function sendPasswordResetEmail(event) {
   });
 }
 
-function redirectAfterAuth() {
+async function redirectAfterAuth() {
   const redirectUrl = urlParams.get("redirect");
-  if (redirectUrl) window.location.href = redirectUrl;
+  if (redirectUrl) redirectToPartnerApp(redirectUrl);
   else navigate("home");
+}
+
+async function redirectToPartnerApp(targetUrl) {
+  if (!currentAuthUser) throw new Error("User not signed in");
+
+  const idToken = await currentAuthUser.getIdToken();
+
+  const apiUrl = `http://kgdee-firebase-functions.netlify.app/.netlify/functions/create-custom-token`;
+  const res = await fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${idToken}`,
+    },
+  });
+
+  if (!res.ok) throw new Error("Failed to create custom token");
+  const { customToken } = await res.json();
+
+  // Redirect to target domain with the custom token
+  const url = new URL(targetUrl);
+  url.searchParams.set("custom_token", customToken);
+  window.location.href = url.toString();
 }
