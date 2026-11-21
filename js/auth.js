@@ -61,7 +61,7 @@ async function redirectToPartnerApp(targetUrl) {
 
   const idToken = await currentAuthUser.getIdToken();
 
-  const apiUrl = `http://kgdee-firebase-functions.netlify.app/.netlify/functions/create-custom-token`;
+  const apiUrl = `https://kgdee-firebase-functions.netlify.app/.netlify/functions/create-custom-token`;
   const res = await fetch(apiUrl, {
     method: "POST",
     headers: {
